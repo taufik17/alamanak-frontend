@@ -8,7 +8,7 @@ function CardPopularRecipe(props) {
     <>
       <div className="col-lg-4 col-md-4 col-sm-6 p-4">
         <Card>
-          <Card.Img src={image} alt={title} className="image-popular" />
+          <Card.Img src={image} alt={title} />
           <Card.ImgOverlay>
             <Card.Title className="pt-80">{title}</Card.Title>
           </Card.ImgOverlay>

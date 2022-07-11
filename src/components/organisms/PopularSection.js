@@ -1,15 +1,17 @@
 import axios from "axios";
 import React from "react";
 import "./LandingPage.css";
-import { Row } from "react-bootstrap";
+import { Row, Card } from "react-bootstrap";
 import CardPopularRecipe from "../molecules/CardPopularRecipe";
 
 function PopularSection() {
   const [listRecipe, setListRecipe] = React.useState([]);
+  const [isLoading, setisLoading] = React.useState(true);
   React.useEffect(() => {
-    axios
-      .get("http://localhost:8000/recipe")
-      .then((res) => setListRecipe(res.data.data));
+    axios.get("http://localhost:8000/recipe").then((res) => {
+      setListRecipe(res.data.data);
+      setisLoading(false);
+    });
   }, []);
 
   return (
@@ -21,12 +23,24 @@ function PopularSection() {
           </div>
           <div className="list-popular">
             <div className="row">
-              {listRecipe.map((item) => (
-                <CardPopularRecipe
-                  image={item?.recipe_image}
-                  title={item?.recipe_name}
-                />
-              ))}
+              {isLoading ? (
+                <>
+                  <div className="col-lg-4 col-md-4 col-sm-6 p-4">
+                    <Card>
+                      <div className="animated-background" />
+                    </Card>
+                  </div>
+                </>
+              ) : (
+                <>
+                  {listRecipe.map((item) => (
+                    <CardPopularRecipe
+                      image={item?.recipe_image}
+                      title={item?.recipe_name}
+                    />
+                  ))}
+                </>
+              )}
             </div>
           </div>
         </div>
