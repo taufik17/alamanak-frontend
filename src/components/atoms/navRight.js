@@ -6,6 +6,9 @@ const navRight = () => {
   return (
     <>
       <div className="d-flex">
+        <Nav.Link href="/register">
+          <Button variant="success">Register</Button>{" "}
+        </Nav.Link>
         <Nav.Link href="/login">
           {/* image ini ada jika suah login */}
           {/* <img
@@ -13,7 +16,6 @@ const navRight = () => {
                 alt="profile"
                 className="photo-profile-login"
               /> */}
-          <Button variant="success">Register</Button>{" "}
           <Button variant="warning" className="text-white ml-4">
             Login
           </Button>{" "}

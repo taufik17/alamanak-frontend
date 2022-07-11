@@ -3,6 +3,7 @@ import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
 import LeftMenu from "../atoms/navLeft";
 import RightMenu from "../atoms/navRight";
+import "../organisms/LandingPage.css";
 
 function menuNav() {
   return (

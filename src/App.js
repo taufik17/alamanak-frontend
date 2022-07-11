@@ -14,6 +14,7 @@ export default function App() {
           <Route index element={<Home />} />
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
+          <Route path="detail-recipe" element={<Login />} />
           <Route path="*" element={<PageNotFound />} />
         </Route>
       </Routes>

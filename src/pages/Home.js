@@ -1,20 +1,22 @@
-import axios from "axios";
 import React from "react";
+import MenuNav from "../components/molecules/menuNav";
 import HeroSection from "../components/organisms/HeroSection";
+import NewRecipe from "../components/organisms/NewRecipeSection";
+import PopularRecipe from "../components/organisms/PopularSection";
+import Pagination from "../components/molecules/pagination";
+import Footer from "../components/organisms/FooterSection";
 import { Container } from "react-bootstrap";
 
 function App() {
-  const [listRecipe, setListRecipe] = React.useState([]);
-  React.useEffect(() => {
-    axios
-      .get("http://localhost:8000/recipe")
-      .then((res) => console.log(res.data.data));
-  }, []);
-
   return (
     <>
       <Container fluid>
+        <MenuNav />
         <HeroSection />
+        <NewRecipe />
+        <PopularRecipe />
+        <Pagination />
+        <Footer />
       </Container>
     </>
   );
