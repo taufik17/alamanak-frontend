@@ -1,20 +1,22 @@
-import React from "react";
-import { Container, Row } from "react-bootstrap";
 import "./App.css";
-import LeftLogin from "./components/organisms/LeftLogin";
-import RightLogin from "./components/organisms/RightLogin";
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Login from "../src/pages/Login";
+import Register from "../src/pages/Register";
+import Home from "../src/pages/Home";
+import PageNotFound from "../src/pages/NotFound";
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <Container fluid>
-        <Row className="form-login ">
-          <LeftLogin />
-          <RightLogin />
-        </Row>
-      </Container>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/">
+          <Route index element={<Home />} />
+          <Route path="login" element={<Login />} />
+          <Route path="register" element={<Register />} />
+          <Route path="*" element={<PageNotFound />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
-
-export default App;

@@ -1,13 +1,13 @@
 import React from "react";
 import { Button, Form } from "react-bootstrap";
 import InputText from "../atoms/inputText";
+import FormTitle from "../atoms/formTitle";
 
 function formLogin() {
   return (
     <div className="col-sm-6 pt-15">
       <div className="px-5 py-5">
-        <h4 clasName="welcome-text">Welcome</h4>
-        <p clasName="desc-login">Log in into your exiting account</p>
+        <FormTitle title="Welcome" desc="Log in into your exiting account" />
         <hr className="div-login" />
         <Form>
           <InputText label="E-Mail" type="email" placeholder="Enter email" />
