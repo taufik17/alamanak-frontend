@@ -1,0 +1,16 @@
+.bg-pink {
+    background-color: #FFF5EC;
+}
+.profile-section {
+    padding-top: 150px;
+    height: 70vh;
+}
+
+.profile-image {
+    width: 200px;
+}
+
+.list-group-profile {
+    border-radius: 0px;
+    border-color: unset;
+}
