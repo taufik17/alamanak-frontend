@@ -5,6 +5,8 @@ import LeftLogin from "../components/organisms/LeftLogin";
 import RightLogin from "../components/organisms/RightLogin";
 
 function App() {
+  
+  
   return (
     <div className="App">
       <Container fluid>

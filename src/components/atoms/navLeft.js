@@ -1,7 +1,14 @@
-import { React } from "react";
+import React from "react";
 import { Nav } from "react-bootstrap";
 
-const navLeft = () => {
+const NavLeft = () => {
+  const [isLogin, setIsLogin] = React.useState(false);
+
+  React.useEffect(() => {
+    if (localStorage.getItem("token_almnk")) {
+      setIsLogin(true);
+    }
+  }, []);
   return (
     <>
       <Nav
@@ -9,15 +16,24 @@ const navLeft = () => {
         style={{ maxHeight: "100px" }}
         navbarScroll
       >
-        <Nav.Link href="/" className="text-dark">
-          Home
-        </Nav.Link>
-        {/* menu ini ada jika sudah login */}
-        {/* <Nav.Link href="#action2">Add Recipe</Nav.Link>
-            <Nav.Link href="#action2">Profile</Nav.Link> */}
+        {isLogin ? (
+          <>
+            <Nav.Link href="/" className="text-dark">
+              Home
+            </Nav.Link>
+            <Nav.Link href="#action2">Add Recipe</Nav.Link>
+            <Nav.Link href="#action2">Profile</Nav.Link>
+          </>
+        ) : (
+          <>
+            <Nav.Link href="/" className="text-dark">
+              Home
+            </Nav.Link>
+          </>
+        )}
       </Nav>
     </>
   );
 };
 
-export default navLeft;
+export default NavLeft;

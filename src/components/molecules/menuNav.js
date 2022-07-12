@@ -5,7 +5,8 @@ import LeftMenu from "../atoms/navLeft";
 import RightMenu from "../atoms/navRight";
 import "../organisms/LandingPage.css";
 
-function menuNav() {
+function MenuNav() {
+
   return (
     <Navbar bg="light" expand="lg" fixed="top">
       <Container>
@@ -19,4 +20,4 @@ function menuNav() {
   );
 }
 
-export default menuNav;
+export default MenuNav;

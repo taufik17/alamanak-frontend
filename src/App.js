@@ -11,11 +11,16 @@ export default function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/">
+          {/*NOT AUTHENCTICATION PAGES */}
           <Route index element={<Home />} />
-          <Route path="login" element={<Login />} />
-          <Route path="register" element={<Register />} />
-          <Route path="detail-recipe" element={<Login />} />
           <Route path="*" element={<PageNotFound />} />
+
+          {/* AUTHENCTICATION PAGES */}
+
+
+          {/* AUTH PAGES */}
+          <Route path="register" element={<Register />} />
+          <Route path="login" element={<Login />} />
         </Route>
       </Routes>
     </BrowserRouter>
