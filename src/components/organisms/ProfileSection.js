@@ -8,6 +8,8 @@ function ProfileSection() {
   const [listRecipe, setListRecipe] = React.useState([]);
   const [isLoading, setisLoading] = React.useState(true);
   const [foundRecipe, setFoundRecipe] = React.useState(false);
+  
+  const [dataProfil, setDataProfil] = React.useState([]);
 
   const token = localStorage.getItem("token_almnk");
 
@@ -26,7 +28,22 @@ function ProfileSection() {
         } else {
           setFoundRecipe(true);
         }
-        console.log(res.data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
+  
+  React.useEffect(() => {
+    console.log(token);
+    axios
+      .post("http://localhost:8000/users/myprofile", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((res) => {
+        console.log(res.data)
       })
       .catch((error) => {
         console.error(error);

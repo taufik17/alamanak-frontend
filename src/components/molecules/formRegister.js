@@ -3,7 +3,12 @@ import { Button, Form } from "react-bootstrap";
 import InputText from "../atoms/inputText";
 import FormTitle from "../atoms/formTitle";
 
-function formLogin() {
+function FormRegister() {
+  React.useEffect(() => {
+    if (localStorage.getItem("token_almnk")) {
+      window.location.href = "/";
+    }
+  }, []);
   return (
     <div className="col-sm-6 pt-15">
       <div className="px-5 py-5">
@@ -53,4 +58,4 @@ function formLogin() {
   );
 }
 
-export default formLogin;
+export default FormRegister;

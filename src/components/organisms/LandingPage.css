@@ -325,3 +325,22 @@
     height: 300px;
     position: relative;
   }
+
+  .text-dark {
+    background-color: rgb(0 0 0 / 8%);
+    border-radius: 8px;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+    padding: 5px;
+  }
+
+  a {
+    text-decoration: none !important;
+    padding: 5px;
+    padding-right: 25px;
+    color: rgb(68, 65, 65);
+  }
+
+  .navbar-nav {
+    align-items: center;
+  }

@@ -1,6 +1,12 @@
+:root {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
 .App {
   background-color: #ffffff;
   height: 100vh;
+  overflow: hidden;
 }
 
 .bg-login {
