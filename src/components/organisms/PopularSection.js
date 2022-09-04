@@ -8,7 +8,7 @@ function PopularSection() {
   const [listRecipe, setListRecipe] = React.useState([]);
   const [isLoading, setisLoading] = React.useState(true);
   React.useEffect(() => {
-    axios.get("http://localhost:8000/recipe").then((res) => {
+    axios.get(`https://alamanak.herokuapp.com/recipe`).then((res) => {
       setListRecipe(res.data.data);
       setisLoading(false);
     });

@@ -15,7 +15,7 @@ function ProfileSection() {
 
   React.useEffect(() => {
     axios
-      .get("http://localhost:8000/recipe/find/myrecipe", {
+      .get(`https://alamanak.herokuapp.com/recipe/find/myrecipe`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
