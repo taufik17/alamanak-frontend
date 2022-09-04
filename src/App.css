@@ -100,10 +100,12 @@
 }
 
 .pagination .page-num {
+  color: #EFC81A;
+  background-color: white;
   padding: 8px 15px;
   cursor: pointer;
   border-radius: 3px;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 .pagination .page-num:hover {
