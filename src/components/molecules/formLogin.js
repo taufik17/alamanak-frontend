@@ -22,7 +22,7 @@ function FormLogin() {
   const handleLogin = () => {
     setIsLoading(true);
     axios
-      .post(`https://alamanak.herokuapp.com/login`, {
+      .post("https://alamanak.herokuapp.com/login", {
         email: email,
         password: password,
       })

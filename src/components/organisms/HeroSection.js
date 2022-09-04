@@ -9,7 +9,7 @@ function HeroSection() {
         <Col lg={8} className="bg-left">
           <div className="container">
             <div className="col-lg-8 col-sm-12 left-content-hero mx-15">
-              <h1 className="hero-title">Discover Recipe & Delicious Food Testing</h1>
+              <h1 className="hero-title">Discover Recipe & Delicious Food</h1>
               <Form.Control type="text" size="lg" placeholder="Search Recipe" />
             </div>
           </div>
