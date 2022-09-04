@@ -33,12 +33,19 @@ function PopularSection() {
                 </>
               ) : (
                 <>
-                <CardPopularRecipe data={listRecipe} />
+                  {listRecipe.map((item) => (
+                    <CardPopularRecipe
+                      image={item?.recipe_image}
+                      title={item?.recipe_name}
+                    />
+                  ))}
                 </>
               )}
             </div>
           </div>
         </div>
+
+        <h2>TEsting</h2>
       </Row>
     </>
   );

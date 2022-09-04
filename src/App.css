@@ -90,3 +90,28 @@
   border-radius: 50%;
   margin-right: 8px;
 }
+
+.pagination {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.pagination .page-num {
+  padding: 8px 15px;
+  cursor: pointer;
+  border-radius: 3px;
+  font-weight: 400;
+}
+
+.pagination .page-num:hover {
+  color: white;
+  background-color: #EFC81A;
+}
+
+.pagination .active {
+  background-color: #EFC81A;
+  color: white;
+}
