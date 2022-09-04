@@ -5,6 +5,7 @@ import Login from "../src/pages/Login";
 import Register from "../src/pages/Register";
 import Home from "../src/pages/Home";
 import Profile from "../src/pages/Profile";
+import AddRecipe from "../src/pages/AddRecipe";
 import PageNotFound from "../src/pages/NotFound";
 
 export default function App() {
@@ -18,6 +19,7 @@ export default function App() {
 
           {/* AUTHENCTICATION PAGES */}
           <Route path="profile" element={<Profile />} />
+          <Route path="addRecipe" element={<AddRecipe />} />
 
 
           {/* AUTH PAGES */}

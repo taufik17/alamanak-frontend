@@ -30,13 +30,13 @@ const NavLeft = () => {
         {isLogin ? (
           <>
             <Link exact to="/">
-              <Nav className={location.pathname === "/" ? "text-dark" : <></>} > Home</Nav>
+              <Nav className={location.pathname === "/" ? "text-dark navbar-nav" : "navbar-nav"} > Home</Nav>
             </Link>
-            <Link exact to="/">
-              <Nav clascName={location.pathname === "/addRecipe" ? "text-dark" : <></>}>Add Recipe</Nav>
+            <Link exact to="/addRecipe">
+              <Nav className={location.pathname == "/addRecipe" ? "text-dark navbar-nav" : "navbar-nav"}>Add Recipe</Nav>
             </Link>
             <Link exact to="/profile">
-              <Nav className={location.pathname === "/profile" ? "text-dark" : <></>} >Profile</Nav>
+              <Nav className={location.pathname === "/profile" ? "text-dark navbar-nav" : "navbar-nav"} >Profile</Nav>
             </Link>
           </>
         ) : (
