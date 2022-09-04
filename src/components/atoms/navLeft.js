@@ -7,18 +7,19 @@ const NavLeft = () => {
   const [isLogin, setIsLogin] = React.useState(false);
   const [isActive, setIsActive] = React.useState(false);
 
+  console.log(location.pathname)
+
   React.useEffect(() => {
     if (localStorage.getItem("token_almnk")) {
       setIsLogin(true);
     }
   }, []);
 
-  const CheckUri = () => {
-    // React.useEffect(() => {
-    //   if (location.pathname === "/profile") {
-    //   }
-    // }, []);
-  };
+  // React.useEffect(() => {
+  //   if (location.pathname === "/profile") {
+  //   }
+  // }, []);
+
   return (
     <>
       <Nav
@@ -29,13 +30,13 @@ const NavLeft = () => {
         {isLogin ? (
           <>
             <Link exact to="/">
-              <Nav className="text-dark">Home</Nav>
+              <Nav className={location.pathname === "/" ? "text-dark" : <></>} > Home</Nav>
             </Link>
             <Link exact to="/">
-              <Nav>Add Recipe</Nav>
+              <Nav clascName={location.pathname === "/addRecipe" ? "text-dark" : <></>}>Add Recipe</Nav>
             </Link>
-            <Link exact to="/">
-              <Nav>Profile</Nav>
+            <Link exact to="/profile">
+              <Nav className={location.pathname === "/profile" ? "text-dark" : <></>} >Profile</Nav>
             </Link>
           </>
         ) : (

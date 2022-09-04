@@ -1,5 +1,5 @@
 import React from "react";
-import "../organisms/LandingPage.css";
+import "../molecules/popular.css";
 import { Card } from "react-bootstrap";
 
 function CardPopularRecipe(props) {
@@ -7,10 +7,10 @@ function CardPopularRecipe(props) {
   return (
     <>
       <div className="col-lg-4 col-md-4 col-sm-6 p-4">
-        <Card>
-          <Card.Img src={image} alt={title} />
-          <Card.ImgOverlay>
-            <Card.Title className="pt-80">{title}</Card.Title>
+        <Card className="radius">
+          <Card.Img className="img-popular" src={image} alt={title} />
+          <Card.ImgOverlay className="bg-overlay">
+            <Card.Title className="pt-text">{title}</Card.Title>
           </Card.ImgOverlay>
         </Card>
       </div>

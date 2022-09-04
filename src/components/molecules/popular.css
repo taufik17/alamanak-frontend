@@ -1,0 +1,30 @@
+.img-popular {
+    height: 350px;
+    border-radius: 25px;
+    object-fit: cover;
+}
+
+.radius {
+    border-radius: 27px;
+}
+
+.pt-text {
+    color: white;
+    text-align: center;
+    border-radius: 15px;
+}
+
+.bg-overlay {
+    top: 280px;
+    height: 70px;
+    border-radius: 0px 0px 25px 25px;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: 0.3s;
+}
+
+.bg-overlay:hover {
+    top: 280px;
+    height: 70px;
+    border-radius: 0px 0px 25px 25px;
+    background-color: rgba(0, 0, 0, 0.8);
+}
