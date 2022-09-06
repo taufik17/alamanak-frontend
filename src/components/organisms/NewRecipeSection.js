@@ -8,7 +8,7 @@ function NewRecipeSection() {
   const [listRecipe, setListRecipe] = React.useState([]);
   React.useEffect(() => {
     axios
-      .get("https://alamanak.herokuapp.com/recipe/find/latest")
+      .get(`${process.env.REACT_APP_BASE_URL}/recipe/find/latest`)
       .then((res) => setListRecipe(res.data.data.slice(0,1)));
   }, []);
   return (

@@ -44,7 +44,7 @@ function NewRecipeContent(props) {
           hurry ? That’ s right!
         </p>
         <Button variant="warning" className="text-white">
-          Learn More
+          Detail
         </Button>
       </div>
     </div>
