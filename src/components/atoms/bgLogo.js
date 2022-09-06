@@ -6,7 +6,8 @@ function bgLogo() {
       <div className="background">
         <div className="opacity"></div>
         <img
-          src="../../image/logo.png"
+          // eslint-disable-next-line no-undef
+          src={require("../../image/logo.png")}
           alt="Background login"
           className="logo-login"
         />

@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import React from "react";
 import axios from "axios";
 import "./ProfilePage.css";
@@ -36,7 +37,7 @@ function ProfileSection() {
     React.useEffect(() => {
         console.log(token);
         axios
-            .post("http://localhost:8000/users/myprofile", {
+            .post(`${process.env.REACT_APP_BASE_URL}/users/myprofile`, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
