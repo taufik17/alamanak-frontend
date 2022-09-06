@@ -6,7 +6,7 @@ function bgLogo() {
       <div className="background">
         <div className="opacity"></div>
         <img
-          src={require("../../image/logo.png")}
+          src="../../image/logo.png"
           alt="Background login"
           className="logo-login"
         />

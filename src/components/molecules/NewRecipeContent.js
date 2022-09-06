@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 import "../organisms/LandingPage.css";
 import { Button } from "react-bootstrap";

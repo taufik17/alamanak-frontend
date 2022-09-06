@@ -5,20 +5,12 @@ import { useLocation, Link } from "react-router-dom";
 const NavLeft = () => {
   const location = useLocation();
   const [isLogin, setIsLogin] = React.useState(false);
-  const [isActive, setIsActive] = React.useState(false);
-
-  console.log(location.pathname)
-
+  
   React.useEffect(() => {
     if (localStorage.getItem("token_almnk")) {
       setIsLogin(true);
     }
   }, []);
-
-  // React.useEffect(() => {
-  //   if (location.pathname === "/profile") {
-  //   }
-  // }, []);
 
   return (
     <>

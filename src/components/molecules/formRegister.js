@@ -51,7 +51,7 @@ function FormRegister() {
             </Button>
           </div>
 
-          <p clasName="pt-4">Already have account? Log in Here</p>
+          <p className="pt-4">Already have account? Log in Here</p>
         </Form>
       </div>
     </div>
