@@ -22,6 +22,7 @@ function NewRecipeSection() {
                     {listRecipe.map((item) => (
                         <ContentNewRecipe
                             key={item?.id_recipe}
+                            id_recipe={item?.id_recipe}
                             image={item?.recipe_image}
                             title={item?.recipe_name}
                         />

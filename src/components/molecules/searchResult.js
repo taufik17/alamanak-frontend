@@ -17,7 +17,7 @@ function SearchResult(props) {
 
     return (
         <>
-            <div>
+            <div className="mb-4">
                 <CardPopularRecipe data={listRecipe} />
             </div>
         </>

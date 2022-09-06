@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import "../molecules/popular.css";
 import { Card } from "react-bootstrap";
 import ReactPaginate from "react-paginate";
+import { Link } from "react-router-dom";
 
 function CardPopularRecipe(props) {
     const { data } = props;
@@ -29,18 +30,20 @@ function CardPopularRecipe(props) {
                 {currentItems.map((item) => (
                     <>
                         <div className="col-lg-4 col-md-4 col-sm-6 p-4">
-                            <Card className="radius">
-                                <Card.Img
-                                    className="img-popular"
-                                    src={item?.recipe_image}
-                                    alt={item?.recipe_name}
-                                />
-                                <Card.ImgOverlay className="bg-overlay">
-                                    <Card.Title className="pt-text">
-                                        {item?.recipe_name}
-                                    </Card.Title>
-                                </Card.ImgOverlay>
-                            </Card>
+                            <Link to={`/detailrecipe/${item?.id_recipe}`}>
+                                <Card className="radius">
+                                    <Card.Img
+                                        className="img-popular"
+                                        src={item?.recipe_image}
+                                        alt={item?.recipe_name}
+                                    />
+                                    <Card.ImgOverlay className="bg-overlay">
+                                        <Card.Title className="pt-text">
+                                            {item?.recipe_name}
+                                        </Card.Title>
+                                    </Card.ImgOverlay>
+                                </Card>
+                            </Link>
                         </div>
                     </>
                 ))}

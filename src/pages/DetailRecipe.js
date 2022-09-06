@@ -1,18 +1,21 @@
-import axios from "axios";
 import React from "react";
-import HeroSection from "../components/organisms/HeroSection";
 import { Container } from "react-bootstrap";
 import MenuNav from "../components/molecules/menuNav";
 
-function App() {
+function DetailRecipe() {
   return (
     <>
       <Container fluid>
         <MenuNav />
-        <HeroSection />
+        
+        <div className="pt-5">
+          <div className="pt-5">
+            <h1>TEsting</h1>
+          </div>
+        </div>
       </Container>
     </>
   );
 }
 
-export default App;
+export default DetailRecipe;

@@ -8,6 +8,7 @@ import Profile from "../src/pages/Profile";
 import AddRecipe from "../src/pages/AddRecipe";
 import PageNotFound from "../src/pages/NotFound";
 import Search from "../src/pages/Search";
+import DetailRecipe from "../src/pages/DetailRecipe";
 
 export default function App() {
   return (
@@ -18,6 +19,7 @@ export default function App() {
           <Route index element={<Home />} /> { /*Conditional menu */}
           <Route path="*" element={<PageNotFound />} />
           <Route path="search/:keyword" element={<Search />} />
+          <Route path="detailrecipe/:id" element={<DetailRecipe />} />
 
           {/* AUTHENCTICATION PAGES */}
           <Route path="profile" element={<Profile />} />
