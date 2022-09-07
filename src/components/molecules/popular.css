@@ -4,6 +4,12 @@
     object-fit: cover;
 }
 
+.img-detail {
+    height: 500px;
+    border-radius: 25px;
+    object-fit: cover;
+}
+
 .radius {
     border-radius: 27px;
 }
@@ -27,4 +33,10 @@
     height: 70px;
     border-radius: 0px 0px 25px 25px;
     background-color: rgba(0, 0, 0, 0.8);
+}
+
+.save-like-detail {
+    padding-top: 420px;
+    text-align: end;
+    justify-content: end;
 }

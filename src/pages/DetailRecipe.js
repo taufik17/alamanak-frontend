@@ -1,6 +1,8 @@
 import React from "react";
 import { Container } from "react-bootstrap";
 import MenuNav from "../components/molecules/menuNav";
+import ContentDetail from "../components/organisms/detailRecipe";
+import Footer from "../components/organisms/FooterSection";
 
 function DetailRecipe() {
   return (
@@ -10,9 +12,10 @@ function DetailRecipe() {
         
         <div className="pt-5">
           <div className="pt-5">
-            <h1>TEsting</h1>
+            <ContentDetail />
           </div>
         </div>
+        <Footer />
       </Container>
     </>
   );
