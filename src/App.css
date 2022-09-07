@@ -117,3 +117,7 @@
   background-color: #EFC81A;
   color: white;
 }
+
+.cursor {
+  cursor: pointer;
+}

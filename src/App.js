@@ -9,9 +9,11 @@ import AddRecipe from "../src/pages/AddRecipe";
 import PageNotFound from "../src/pages/NotFound";
 import Search from "../src/pages/Search";
 import DetailRecipe from "../src/pages/DetailRecipe";
+// import ScrollTop from "./components/scrollTop";
 
 export default function App() {
   return (
+        // <ScrollTop />
     <BrowserRouter>
       <Routes>
         <Route path="/">
