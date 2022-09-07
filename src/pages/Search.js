@@ -17,7 +17,7 @@ function Search() {
             <Container fluid>
                 <MenuNav />
                 <div className="pt-5">
-                    <div className="pt-5 mt-5 mx-5 px-5 text-center">
+                    <div className="pt-5 mt-5 mx-4 px-5 text-center">
                         <Form
                             onSubmit={(e) => {
                                 e.preventDefault();

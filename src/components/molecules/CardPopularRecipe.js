@@ -28,7 +28,7 @@ function CardPopularRecipe(props) {
             <div className="row">
                 {currentItems.map((item) => (
                     <>
-                        <div className="col-lg-4 col-md-4 col-sm-6 p-4">
+                        <div className="col-lg-4 col-md-4 col-sm-6 pt-0 p-4">
                             <Link to={`/detailrecipe/${item?.id_recipe}`}>
                                 <Card className="radius">
                                     <Card.Img
