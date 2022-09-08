@@ -96,7 +96,7 @@ npm install
 Create .env file in your root project folder.
 
 ```env
-REACT_APP_BASE_URL=
+REACT_APP_BASE_URL=https://alamanak.herokuapp.com/
 ```
 
 <!-- CONTRIBUTING -->
