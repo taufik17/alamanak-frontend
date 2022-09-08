@@ -16,24 +16,26 @@ function Search() {
         <>
             <Container fluid>
                 <MenuNav />
-                <div className="pt-5">
-                    <div className="pt-5 mt-5 mx-4 px-5 text-center">
-                        <Form
-                            onSubmit={(e) => {
-                                e.preventDefault();
-                                handleSearch();
-                            }}
-                        >
-                            <Form.Control
-                                type="text"
-                                size="lg"
-                                required
-                                placeholder="Search Recipe"
-                                onChange={(e) => setKeyword(e.target.value)}
-                            />
-                        </Form>
+                <Container>
+                    <div className="pt-5">
+                        <div className="pt-5 mt-5 px-2 text-center">
+                            <Form
+                                onSubmit={(e) => {
+                                    e.preventDefault();
+                                    handleSearch();
+                                }}
+                            >
+                                <Form.Control
+                                    type="text"
+                                    size="lg"
+                                    required
+                                    placeholder="Search Recipe"
+                                    onChange={(e) => setKeyword(e.target.value)}
+                                />
+                            </Form>
+                        </div>
                     </div>
-                </div>
+                </Container>
                 <Container>
                     <SearchResult keyword={keyword} />
                 </Container>
