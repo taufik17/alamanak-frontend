@@ -55,8 +55,9 @@ Create a Node.js app for building Alamanak front-end desktop using ReactJs.
 ### Built With
 This app was built with some technologies below:
 - [Node.js](https://nodejs.org/en/)
+- [React.js](https://reactjs.org/)
 - [React Bootstrap](https://react-bootstrap.github.io/)
-- and other
+- and other react package
 
 <!-- GETTING STARTED -->
 ## Getting Started
@@ -69,8 +70,7 @@ This is an example of how to list things you need to use the software and how to
 
 ### Requirements
 * [Node.js](https://nodejs.org/en/)
-* [Postman](https://www.getpostman.com/) for testing
-* [Database](https://www.postgresql.org/)
+* [Yarn](https://yarnpkg.com/) optional
 
 ### Installation
 
@@ -86,41 +86,18 @@ cd alamanak-frontend
 ```
 npm install
 ```
-- Create new database named `alamanak`
-- Restore database file in `database/db` using pgadmin4
 
 - <a href="#setup-env-example">Setup .env</a>
-- Type ` npm run dev` To Start Development
-- Type ` npm run start` To Start Production
+- Type ` npm run build` To Build Project
+- Type ` npm run start` To Start Project
 
 ### Setup .env example
 
 Create .env file in your root project folder.
 
 ```env
-base_url=
-EXPRESS_PORT=
-DB_USER=
-DB_HOST=
-DB_DATABASE=
-DB_PASSWORD=
-DB_PORT=
-SECRET_KEY=
-ENV_MODE=
-DB_URI=
-
-CLOUDINARY_NAME=
-CLOUDINARY_API_KEY=
-CLOUDINARY_API_SECRET=
+REACT_APP_BASE_URL=
 ```
-
-
-## REST API
-
-You can view my Postman collection [here]()
-</br>
-[![Run in Postman](https://run.pstmn.io/button.svg)]()
-
 
 <!-- CONTRIBUTING -->
 ## Contributing
@@ -138,9 +115,7 @@ Contributions are what make the open source community such an amazing place to b
 
 :rocket: [`Frontend Alamanak`](https://github.com/taufik17/alamanak-frontend.git)
 
-:rocket: [`Web Service`](#)
-
-:rocket: [`Demo Alamanak`](#)
+:rocket: [`Demo Alamanak`](https://alamanak-frontend.vercel.app/)
 
 ## Contact
 
