@@ -41,8 +41,6 @@ function FormLogin() {
       });
   };
 
-  // localStorage.getItem('token_almnk');
-  // localStorage.removeItem('token_almnk');
 
   return (
     <div className="col-sm-6 pt-15">
