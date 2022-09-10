@@ -3,7 +3,6 @@ import React from "react";
 import MenuNav from "../components/molecules/menuNav";
 import ProfileSection from "../components/organisms/ProfileSection";
 import Footer from "../components/organisms/FooterSection";
-import { connect } from "react-redux";
 
 function Profile(props) {
   console.log("props", props);
@@ -22,10 +21,4 @@ function Profile(props) {
   );
 }
 
-const mapStateToProps = (state) => ({
-  example: state?.example,
-});
-
-const mapDispatchToProps = (dispatch) => ({});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Profile);
+export default Profile

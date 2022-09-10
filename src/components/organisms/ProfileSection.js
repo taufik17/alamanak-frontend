@@ -8,10 +8,11 @@ import MyRecipe from "../molecules/MyRecipe";
 import LikeSave from "../molecules/LikeSaveRecipe";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
+import { useSelector } from "react-redux";
 
 function ProfileSection() {
+  const { auth } = useSelector((state) => state);
   const [listMyRecipe, setListMyRecipe] = React.useState([]);
-  const [profile, setProfile] = React.useState([]);
   const [isLoading, setisLoading] = React.useState(true);
   const [foundRecipe, setFoundRecipe] = React.useState(false);
   const [key, setKey] = React.useState("myRecipe");
@@ -39,32 +40,18 @@ function ProfileSection() {
       });
   }, []);
 
-  React.useEffect(() => {
-    axios
-      .get(`${process.env.REACT_APP_BASE_URL}/users/myprofile`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      .then((res) => {
-        setProfile(res?.data);
-        console.log("profil", res?.data);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }, []);
+  
   return (
     <>
       <Container fluid className="bg-pink">
         <Row className="justify-content-sm-center profile-section">
           <Col md="auto">
             <img
-              src="../../image/profile/default.png"
+              src={auth?.profile?.user_image}
               alt="profile"
-              className="rounded profile-image"
+              className="rounded-circle profile-image"
             />
-            <h4 className="text-center">Foto Profile</h4>
+            <h4 className="text-center">{auth?.profile?.name}</h4>
           </Col>
         </Row>
 

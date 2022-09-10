@@ -12,8 +12,7 @@ import { Navigate } from "react-router-dom";
 function FormLogin(props) {
   const dispatch = useDispatch();
   const { auth } = useSelector((state) => state);
-  console.log(auth);
-
+  
   const [isError, setIsError] = React.useState(false);
   const [errorMsg, setErrorMsg] = React.useState("");
 
