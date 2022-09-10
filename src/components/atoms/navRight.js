@@ -1,8 +1,12 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
 import { Button, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import * as Type from "../../redux/auth/type";
 
 const NavRight = () => {
+  const dispatch = useDispatch;
   const [isLogin, setIsLogin] = React.useState(false);
 
   React.useEffect(() => {
@@ -11,10 +15,7 @@ const NavRight = () => {
     }
   }, []);
 
-  const logout = () => {
-    localStorage.removeItem("token_almnk");
-    window.location.href = "/";
-  };
+  const logout = () => {};
 
   return (
     <>
@@ -31,7 +32,16 @@ const NavRight = () => {
               </Nav>
             </Link>
             <Nav>
-              <Button variant="danger" type="submit" onClick={logout}>
+              <Button
+                variant="danger"
+                type="submit"
+                onClick={() => {
+                  // dispatch({ type: Type.REMOVE_AUTH });
+                  localStorage.removeItem("token_almnk");
+                  localStorage.removeItem("persist:root");
+                  window.location.href = "/";
+                }}
+              >
                 Logout
               </Button>
             </Nav>

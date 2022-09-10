@@ -7,6 +7,7 @@ import { Button, Form, Alert } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import FormTitle from "../atoms/formTitle";
 import * as Type from "../../redux/auth/type";
+import { Navigate } from "react-router-dom";
 
 function FormLogin(props) {
   const dispatch = useDispatch();
@@ -26,10 +27,6 @@ function FormLogin(props) {
     }
   }, []);
 
-  React.useEffect(() => {
-    dispatch({ type: Type.SET_PROFILE, payload: "tes" });
-  }, []);
-
   const handleLogin = () => {
     setIsLoading(true);
     axios
@@ -39,8 +36,15 @@ function FormLogin(props) {
       })
       .then((res) => {
         setIsError(false);
+        dispatch({
+          type: Type.SET_AUTH,
+          payload: {
+            token: res?.data?.token,
+            user: res?.data?.user,
+          },
+        });
         localStorage.setItem("token_almnk", res?.data?.token);
-        props.setProfile(res?.data?.user);
+        window.location.href = "/";
       })
       .catch((err) => {
         setIsError(true);
