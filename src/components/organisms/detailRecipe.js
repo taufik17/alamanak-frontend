@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
 import { useParams, Link } from "react-router-dom";
 import axios from "axios";
@@ -11,10 +12,16 @@ import { BsPlay } from "react-icons/bs";
 import { FiSend } from "react-icons/fi";
 import Like from "../atoms/like";
 import Saved from "../atoms/saved";
+import { useSelector, useDispatch } from "react-redux";
+import Video from "../molecules/video";
 
 function DetailRecipe() {
   let { id } = useParams();
   const [recipe, setRecipe] = React.useState([]);
+  const [video, setVideo] = React.useState([]);
+
+  const dispatch = useDispatch();
+  const { auth } = useSelector((state) => state);
   
   React.useEffect(() => {
     window.scrollTo({top: 0, left: 0, behavior: 'auto'});
@@ -55,18 +62,24 @@ function DetailRecipe() {
                     />
                     <Card.ImgOverlay>
                       <Card.Title className="save-like-detail">
-                        <span>
-                          <Saved
-                            key={item?.id_recipe}
-                            id_recipe={item?.id_recipe}
-                            recipeName={item?.recipe_name}
-                          />
-                          <Like
-                            key={item?.id_recipe}
-                            id_recipe={item?.id_recipe}
-                            recipeName={item?.recipe_name}
-                          />
-                        </span>
+                        {auth?.token == null ? (
+                          <></>
+                        ) : (
+                          <>
+                            <span>
+                              <Saved
+                                key={item?.id_recipe}
+                                id_recipe={item?.id_recipe}
+                                recipeName={item?.recipe_name}
+                              />
+                              <Like
+                                key={item?.id_recipe}
+                                id_recipe={item?.id_recipe}
+                                recipeName={item?.recipe_name}
+                              />
+                            </span>
+                          </>
+                        )}
                       </Card.Title>
                     </Card.ImgOverlay>
                   </Card>

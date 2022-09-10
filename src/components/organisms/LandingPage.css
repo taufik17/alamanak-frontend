@@ -291,6 +291,8 @@
 .pagination {
     padding-top: 20px;
     justify-content: center;
+    padding-bottom: 65px;
+    margin-bottom: 0px;
 }
 
 
