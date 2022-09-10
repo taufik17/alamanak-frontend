@@ -12,7 +12,7 @@ import { useSelector } from "react-redux";
 
 function ProfileSection() {
   const { auth } = useSelector((state) => state);
-  const [listMyRecipe, setListMyRecipe] = React.useState([]);
+  const [ListRecipe, setListRecipe] = React.useState([]);
   const [isLoading, setisLoading] = React.useState(true);
   const [foundRecipe, setFoundRecipe] = React.useState(false);
   const [key, setKey] = React.useState("myRecipe");
@@ -20,27 +20,71 @@ function ProfileSection() {
   const token = localStorage.getItem("token_almnk");
 
   React.useEffect(() => {
-    axios
-      .get(`${process.env.REACT_APP_BASE_URL}/recipe/find/myrecipe`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      .then((res) => {
-        setListMyRecipe(res?.data?.data);
-        setisLoading(false);
-        if (res?.data?.data?.length === 0) {
-          setFoundRecipe(false);
-        } else {
-          setFoundRecipe(true);
-        }
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }, []);
+    setisLoading(true);
+    if (key == "myRecipe") {
+      axios
+        .get(`${process.env.REACT_APP_BASE_URL}/recipe/find/myrecipe`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        .then((res) => {
+          setListRecipe(res?.data?.data);
+          setisLoading(false);
+          if (res?.data?.data?.length === 0) {
+            setFoundRecipe(false);
+          } else {
+            setFoundRecipe(true);
+          }
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    } else if (key == "savedRecipe") {
+      setListRecipe([]);
+      axios
+        .post(`${process.env.REACT_APP_BASE_URL}/recipe/findSave/id_user`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+          id: auth?.profile?.id_user,
+        })
+        .then((res) => {
+          setListRecipe(res?.data?.data);
+          setisLoading(false);
+          if (res?.data?.data?.length === 0) {
+            setFoundRecipe(false);
+          } else {
+            setFoundRecipe(true);
+          }
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    } else if(key == "likedRecipe") {
+      setListRecipe([]);
+      axios
+        .post(`${process.env.REACT_APP_BASE_URL}/recipe/findLike/id_user`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+          id: auth?.profile?.id_user,
+        })
+        .then((res) => {
+          setListRecipe(res?.data?.data);
+          setisLoading(false);
+          if (res?.data?.data?.length === 0) {
+            setFoundRecipe(false);
+          } else {
+            setFoundRecipe(true);
+          }
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    }
+  }, [key]);
 
-  
   return (
     <>
       <Container fluid className="bg-pink">
@@ -67,13 +111,13 @@ function ProfileSection() {
                 <>
                   <div className="row">
                     <div className="col-lg-4 col-md-4 col-sm-6 p-4">
-                      <Skeleton width={270} height={340} />
+                      <Skeleton width={300} height={340} />
                     </div>
                     <div className="col-lg-4 col-md-4 col-sm-6 p-4">
-                      <Skeleton width={270} height={340} />
+                      <Skeleton width={300} height={340} />
                     </div>
                     <div className="col-lg-4 col-md-4 col-sm-6 p-4">
-                      <Skeleton width={270} height={340} />
+                      <Skeleton width={300} height={340} />
                     </div>
                   </div>
                 </>
@@ -81,7 +125,7 @@ function ProfileSection() {
                 <>
                   {foundRecipe ? (
                     <>
-                      <MyRecipe data={listMyRecipe} />
+                      <MyRecipe data={ListRecipe} />
                     </>
                   ) : (
                     <>
@@ -94,10 +138,66 @@ function ProfileSection() {
               )}
             </Tab>
             <Tab eventKey="savedRecipe" title="Saved Recipe">
-              <LikeSave data={listMyRecipe} />
+              {isLoading ? (
+                <>
+                  <div className="row">
+                    <div className="col-lg-4 col-md-4 col-sm-6 p-4">
+                      <Skeleton width={300} height={340} />
+                    </div>
+                    <div className="col-lg-4 col-md-4 col-sm-6 p-4">
+                      <Skeleton width={300} height={340} />
+                    </div>
+                    <div className="col-lg-4 col-md-4 col-sm-6 p-4">
+                      <Skeleton width={300} height={340} />
+                    </div>
+                  </div>
+                </>
+              ) : (
+                <>
+                  {foundRecipe ? (
+                    <>
+                      <LikeSave data={ListRecipe} />
+                    </>
+                  ) : (
+                    <>
+                      <div className="text-center py-3">
+                        <h6>Not Found</h6>
+                      </div>
+                    </>
+                  )}
+                </>
+              )}
             </Tab>
             <Tab eventKey="likedRecipe" title="Liked Recipe">
-              <LikeSave data={listMyRecipe} />
+              {isLoading ? (
+                <>
+                  <div className="row">
+                    <div className="col-lg-4 col-md-4 col-sm-6 p-4">
+                      <Skeleton width={300} height={340} />
+                    </div>
+                    <div className="col-lg-4 col-md-4 col-sm-6 p-4">
+                      <Skeleton width={300} height={340} />
+                    </div>
+                    <div className="col-lg-4 col-md-4 col-sm-6 p-4">
+                      <Skeleton width={300} height={340} />
+                    </div>
+                  </div>
+                </>
+              ) : (
+                <>
+                  {foundRecipe ? (
+                    <>
+                      <LikeSave data={ListRecipe} />
+                    </>
+                  ) : (
+                    <>
+                      <div className="text-center py-3">
+                        <h6>Not Found</h6>
+                      </div>
+                    </>
+                  )}
+                </>
+              )}
             </Tab>
           </Tabs>
         </Container>

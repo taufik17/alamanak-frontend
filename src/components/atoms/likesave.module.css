@@ -1,16 +1,52 @@
 .icon {
-    background-color: whitesmoke;
-    padding: 8px;
-    border: 1px solid #F1CD31;
-    border-radius: 30%;
-    font-size: 45px;
-    color: #F1CD31;
+  background-color: whitesmoke;
+  padding: 8px;
+  border: 1px solid #f1cd31;
+  border-radius: 30%;
+  font-size: 45px;
+  color: #f1cd31;
 }
 
 .active {
-    background-color: #F1CD31;
-    padding: 8px;
-    border-radius: 30%;
-    font-size: 45px;
-    color: #ffffff;
+  background-color: #f1cd31;
+  padding: 8px;
+  border-radius: 30%;
+  font-size: 45px;
+  color: #ffffff;
+}
+
+.iconDelete {
+  background-color: whitesmoke;
+  padding: 8px;
+  border: 1px solid maroon;
+  border-radius: 30%;
+  font-size: 45px;
+  color: maroon;
+}
+
+.iconDelete:hover {
+  background-color: maroon;
+  padding: 8px;
+  border: 1px solid maroon;
+  border-radius: 30%;
+  font-size: 45px;
+  color: whitesmoke;
+}
+
+.iconEdit {
+  background-color: whitesmoke;
+  padding: 8px;
+  border: 1px solid #f1cd31;
+  border-radius: 30%;
+  font-size: 45px;
+  color: #f1cd31;
+}
+
+.iconEdit:hover {
+  background-color: #f1cd31;
+  padding: 8px;
+  border: 1px solid #f1cd31;
+  border-radius: 30%;
+  font-size: 45px;
+  color: white;
 }

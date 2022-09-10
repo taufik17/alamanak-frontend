@@ -4,6 +4,8 @@ import "../molecules/popular.css";
 import { Card } from "react-bootstrap";
 import ReactPaginate from "react-paginate";
 import { Link } from "react-router-dom";
+import { BiTrash } from "react-icons/bi";
+import style from "../atoms/likesave.module.css";
 
 function LikeSaveRecipe(props) {
   const { data } = props;
@@ -36,6 +38,13 @@ function LikeSaveRecipe(props) {
                     src={item?.recipe_image}
                     alt={item?.recipe_name}
                   />
+
+                  <Card.ImgOverlay>
+                    <Card.Title className="act">
+                      <BiTrash className={`${style.iconDelete}  mx-1 cursor`} />
+                    </Card.Title>
+                  </Card.ImgOverlay>
+
                   <Card.ImgOverlay className="bg-overlay">
                     <Card.Title className="pt-text">
                       {item?.recipe_name}

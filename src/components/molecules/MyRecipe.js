@@ -4,6 +4,8 @@ import "../molecules/popular.css";
 import { Card } from "react-bootstrap";
 import ReactPaginate from "react-paginate";
 import { Link } from "react-router-dom";
+import { BiTrash, BiEdit } from "react-icons/bi";
+import style from "../atoms/likesave.module.css";
 
 function MyRecipe(props) {
   const { data } = props;
@@ -28,21 +30,28 @@ function MyRecipe(props) {
       <div className="row">
         {currentItems.map((item) => (
           <>
-            <div className="col-lg-4 col-md-4 col-sm-6 pt-0 p-4">
-              <Link to={`/detailrecipe/${item?.id_recipe}`}>
-                <Card className="radius">
-                  <Card.Img
-                    className="img-popular"
-                    src={item?.recipe_image}
-                    alt={item?.recipe_name}
-                  />
+            <div className="col-lg-4 col-md-4 col-sm-6 pt-4 p-3">
+              <Card className="radius">
+                <Card.Img
+                  className="img-popular"
+                  src={item?.recipe_image}
+                  alt={item?.recipe_name}
+                />
+                <Card.ImgOverlay>
+                  <Card.Title className="act">
+                    <BiEdit className={`${style.iconEdit}  mx-1 cursor`} />
+                    <BiTrash className={`${style.iconDelete}  mx-1 cursor`} />
+                  </Card.Title>
+                </Card.ImgOverlay>
+
+                <Link to={`/detailrecipe/${item?.id_recipe}`} className="p-0">
                   <Card.ImgOverlay className="bg-overlay">
                     <Card.Title className="pt-text">
                       {item?.recipe_name}
                     </Card.Title>
                   </Card.ImgOverlay>
-                </Card>
-              </Link>
+                </Link>
+              </Card>
             </div>
           </>
         ))}

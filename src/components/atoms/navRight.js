@@ -2,11 +2,10 @@
 import React from "react";
 import { Button, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import * as Type from "../../redux/auth/type";
+import { useSelector } from "react-redux";
 
 const NavRight = () => {
-  const dispatch = useDispatch;
+  const { auth } = useSelector((state) => state);  
   const [isLogin, setIsLogin] = React.useState(false);
 
   React.useEffect(() => {
@@ -14,8 +13,6 @@ const NavRight = () => {
       setIsLogin(true);
     }
   }, []);
-
-  const logout = () => {};
 
   return (
     <>
@@ -25,7 +22,7 @@ const NavRight = () => {
             <Link exact to="/profile">
               <Nav>
                 <img
-                  src="https://translationmonster.com/wp-content/uploads/2017/08/Female_dummy_image.jpg"
+                  src={auth?.profile?.user_image}
                   alt="profile"
                   className="photo-profile-login"
                 />
