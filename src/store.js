@@ -22,10 +22,10 @@ const exampleReducer = (state = defaultState, action) => {
 
 const authReducer = (state = defaultState, action) => {
   switch (action.type) {
-    case "SET_DATA": {
+    case "SET_PROFILE": {
       return {
         ...state,
-        loading: false,
+        profile: { ...action.data },
       };
     }
     // DEFAULT
@@ -36,7 +36,8 @@ const authReducer = (state = defaultState, action) => {
 };
 
 const rootReducer = combineReducers({
-  example: exampleReducer, authReducer,
+  auth: authReducer,
+  example: exampleReducer,
 });
 
 // Redux: Store

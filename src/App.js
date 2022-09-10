@@ -1,8 +1,9 @@
 import "./App.css";
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { PersistGate } from "redux-persist/integration/react";
 import { Provider } from "react-redux";
-import store from "./store";
+import { store, persistor } from "./redux/store";
 
 import Login from "../src/pages/Login";
 import Register from "../src/pages/Register";
@@ -16,23 +17,25 @@ import DetailRecipe from "../src/pages/DetailRecipe";
 export default function App() {
   return (
     <Provider store={store}>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/">
-            {/*NOT AUTHENCTICATION PAGES */}
-            <Route index element={<Home />} /> {/*Conditional menu */}
-            <Route path="*" element={<PageNotFound />} />
-            <Route path="search/:keyword" element={<Search />} />
-            <Route path="detailrecipe/:id" element={<DetailRecipe />} />
-            {/* AUTHENCTICATION PAGES */}
-            <Route path="profile" element={<Profile />} />
-            <Route path="addRecipe" element={<AddRecipe />} />
-            {/* AUTH PAGES */}
-            <Route path="register" element={<Register />} />
-            <Route path="login" element={<Login />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
+      <PersistGate loading={null} persistor={persistor}>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/">
+              {/*NOT AUTHENCTICATION PAGES */}
+              <Route index element={<Home />} /> {/*Conditional menu */}
+              <Route path="*" element={<PageNotFound />} />
+              <Route path="search/:keyword" element={<Search />} />
+              <Route path="detailrecipe/:id" element={<DetailRecipe />} />
+              {/* AUTHENCTICATION PAGES */}
+              <Route path="profile" element={<Profile />} />
+              <Route path="addRecipe" element={<AddRecipe />} />
+              {/* AUTH PAGES */}
+              <Route path="register" element={<Register />} />
+              <Route path="login" element={<Login />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </PersistGate>
     </Provider>
   );
 }

@@ -1,23 +1,33 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
 import React from "react";
 import axios from "axios";
 import { Button, Form, Alert } from "react-bootstrap";
-// import InputText from "../atoms/inputText";
+import { useSelector, useDispatch } from "react-redux";
 import FormTitle from "../atoms/formTitle";
+import * as Type from "../../redux/auth/type";
 
-function FormLogin() {
+function FormLogin(props) {
+  const dispatch = useDispatch();
+  const { auth } = useSelector((state) => state);
+  console.log(auth);
+
   const [isError, setIsError] = React.useState(false);
   const [errorMsg, setErrorMsg] = React.useState("");
 
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
-
   const [isLoading, setIsLoading] = React.useState(false);
 
   React.useEffect(() => {
-    if (localStorage.getItem("token_almnk")) {
+    if (auth?.token != null) {
       window.location.href = "/";
     }
+  }, []);
+
+  React.useEffect(() => {
+    dispatch({ type: Type.SET_PROFILE, payload: "tes" });
   }, []);
 
   const handleLogin = () => {
@@ -30,7 +40,7 @@ function FormLogin() {
       .then((res) => {
         setIsError(false);
         localStorage.setItem("token_almnk", res?.data?.token);
-        window.location.href = "/";
+        props.setProfile(res?.data?.user);
       })
       .catch((err) => {
         setIsError(true);
@@ -40,7 +50,6 @@ function FormLogin() {
         setIsLoading(false);
       });
   };
-
 
   return (
     <div className="col-sm-6 pt-15">
