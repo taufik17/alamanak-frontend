@@ -5,7 +5,6 @@ import ProfileSection from "../components/organisms/ProfileSection";
 import Footer from "../components/organisms/FooterSection";
 
 function Profile(props) {
-  console.log("props", props);
   React.useEffect(() => {
     if (localStorage.getItem("token_almnk") === null) {
       window.location.href = "/"
