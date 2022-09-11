@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React from 'react'
 import Plyr from "plyr-react";
-import "plyr-react/dist/plyr.css";
+import "plyr-react/plyr.css";
 
 function video() {
   return (
