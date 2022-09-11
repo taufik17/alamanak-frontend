@@ -84,6 +84,7 @@ function FormAddRecipe() {
     data.append("image", imageRecipe);
     data.append("category", categorySelect);
     data.append("taste", taste);
+    data.append("video", JSON.stringify(videoData));
 
     axios
       .post(`${process.env.REACT_APP_BASE_URL}/recipe/add`, data, config)
