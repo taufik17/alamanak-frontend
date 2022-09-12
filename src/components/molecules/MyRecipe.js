@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import React, { useState, useEffect } from "react";
 import "../molecules/popular.css";
@@ -6,8 +8,20 @@ import ReactPaginate from "react-paginate";
 import { Link } from "react-router-dom";
 import { BiTrash, BiEdit } from "react-icons/bi";
 import style from "../atoms/likesave.module.css";
+import Swal from "sweetalert2";
+import { useSelector } from "react-redux";
+import axios from "axios";
 
 function MyRecipe(props) {
+  const { auth } = useSelector((state) => state);
+  const userToken = auth?.token;
+  console.log("mytkone", userToken);
+  const config = {
+    headers: {
+      Authorization: `Bearer ${userToken}`,
+    },
+  };
+
   const { data } = props;
   const [currentItems, setCurrentItems] = useState([]);
   const [pageCount, setPageCount] = useState(0);
@@ -25,6 +39,40 @@ function MyRecipe(props) {
     setItemOffset(newOffset);
   };
 
+  const handleDelete = (id, name) => {
+    Swal.fire({
+      title: `Delete ${name} ?`,
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+      showLoaderOnConfirm: true,
+      preConfirm: () => {
+        axios
+          .delete(`${process.env.REACT_APP_BASE_URL}/recipe/delete`, {
+            headers: {
+              Authorization: `Bearer ${userToken}`,
+            },
+            data: {
+              idRecipe: id
+            }
+          })
+          .then((res) => {
+            console.log(res);
+          })
+          .catch((error) => {
+            Swal.showValidationMessage(`Request failed: ${error}`);
+          });
+      },
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire("Deleted!", `${name} has been deleted.`, "success");
+      }
+    });
+  };
+
   return (
     <>
       <div className="row">
@@ -40,7 +88,12 @@ function MyRecipe(props) {
                 <Card.ImgOverlay>
                   <Card.Title className="act">
                     <BiEdit className={`${style.iconEdit}  mx-1 cursor`} />
-                    <BiTrash className={`${style.iconDelete}  mx-1 cursor`} />
+                    <BiTrash
+                      className={`${style.iconDelete}  mx-1 cursor`}
+                      onClick={() => {
+                        handleDelete(item?.id_recipe, item?.recipe_name);
+                      }}
+                    />
                   </Card.Title>
                 </Card.ImgOverlay>
 

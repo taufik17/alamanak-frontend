@@ -72,12 +72,6 @@ function FormAddRecipe() {
 
   const handlePost = () => {
     setIsLoading(true);
-    console.log("hasil", title);
-    console.log("Image", imageRecipe);
-    console.log("Category", categorySelect);
-    console.log("Ingredients", ingrdnts);
-    console.log("data video", videoData);
-
     const data = new FormData();
     data.append("recipeName", title);
     data.append("ingredients", ingrdnts);
